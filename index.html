@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Whisper Blocks — TUI Final Project</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <p class="eyebrow">CS320 · Tangible User Interfaces</p>
+      <h1 class="title">Whisper Blocks</h1>
+      <p class="tagline">A squishy, stackable way to share tiny feelings—without screens in the middle.</p>
+    </div>
+    <div class="header-blobs" aria-hidden="true"></div>
+  </header>
+
+  <main id="main">
+    <div class="page-tools" role="toolbar" aria-label="Section panels">
+      <button type="button" class="tool-btn" id="expand-all">Expand all</button>
+      <button type="button" class="tool-btn" id="collapse-all">Collapse all</button>
+    </div>
+
+    <details class="collapse-panel" id="team">
+      <summary class="collapse-summary">
+        <span class="collapse-summary-main">
+          <span class="section-icon" aria-hidden="true">★</span>
+          <h2 class="collapse-heading">Team</h2>
+        </span>
+        <span class="collapse-chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="collapse-body">
+      <ul class="team-grid">
+        <li class="card person">
+          <div class="avatar" style="--hue: 200">A</div>
+          <h3>Avery Chen</h3>
+          <p class="bio">Loves paper circuits, hot cocoa, and making LEDs blink for no reason.</p>
+        </li>
+        <li class="card person">
+          <div class="avatar" style="--hue: 310">J</div>
+          <h3>Jordan Kim</h3>
+          <p class="bio">Industrial design student who sketches on napkins and loses them on purpose.</p>
+        </li>
+        <li class="card person">
+          <div class="avatar" style="--hue: 45">R</div>
+          <h3>Riley Patel</h3>
+          <p class="bio">Software + sensors; once coded a plant to send them Slack messages.</p>
+        </li>
+      </ul>
+      </div>
+    </details>
+
+    <details class="collapse-panel collapse-panel--alt" id="problem">
+      <summary class="collapse-summary">
+        <span class="collapse-summary-main">
+          <span class="section-icon" aria-hidden="true">?</span>
+          <h2 class="collapse-heading">Problem Statement</h2>
+        </span>
+        <span class="collapse-chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="collapse-body">
+      <div class="card prose">
+        <p><strong>The gap:</strong> Young roommates and siblings want to check in on each other’s mood without staring at phones or typing long texts.</p>
+        <p><strong>The opportunity:</strong> A calm, physical “mood totem” on a shared shelf could make emotional check-ins feel playful and low-pressure—like leaving a sticky note, but softer.</p>
+        <p><strong>Why it matters:</strong> Screens add cognitive load; a tangible ritual (stack, squeeze, tap) can make care feel more like play and less like homework.</p>
+      </div>
+      </div>
+    </details>
+
+    <details class="collapse-panel" id="concept">
+      <summary class="collapse-summary">
+        <span class="collapse-summary-main">
+          <span class="section-icon" aria-hidden="true">✦</span>
+          <h2 class="collapse-heading">Conceptual Design</h2>
+        </span>
+        <span class="collapse-chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="collapse-body">
+      <p class="lead">Whisper Blocks are foam-covered cubes with pressure sensors. Each face is a “feeling color.” Stack them to send a quiet signal to a paired block across the room: lights and gentle haptics echo your stack.</p>
+
+      <div class="concept-layout">
+        <figure class="card diagram" aria-label="Storyboard: three panels">
+          <figcaption>Storyboard (placeholder)</figcaption>
+          <svg viewBox="0 0 420 140" role="img" aria-labelledby="story-title">
+            <title id="story-title">Three-panel storyboard: pick a block, stack it, partner block glows</title>
+            <rect class="panel-bg" x="8" y="8" width="120" height="124" rx="12" />
+            <rect class="panel-bg" x="150" y="8" width="120" height="124" rx="12" />
+            <rect class="panel-bg" x="292" y="8" width="120" height="124" rx="12" />
+            <rect fill="#7ec8e3" x="38" y="40" width="60" height="60" rx="8" />
+            <text x="68" y="118" text-anchor="middle" class="svg-caption">Pick</text>
+            <rect fill="#c9a0dc" x="170" y="50" width="40" height="40" rx="6" />
+            <rect fill="#a5b4fc" x="210" y="35" width="40" height="40" rx="6" />
+            <text x="210" y="118" text-anchor="middle" class="svg-caption">Stack</text>
+            <circle fill="#5ec9b3" cx="352" cy="70" r="22" opacity="0.9" />
+            <text x="352" y="118" text-anchor="middle" class="svg-caption">Glow</text>
+          </svg>
+        </figure>
+
+        <figure class="card diagram" aria-label="System diagram">
+          <figcaption>How it works (diagram)</figcaption>
+          <svg viewBox="0 0 360 160" role="img" aria-labelledby="sys-title">
+            <title id="sys-title">Blocks connect to a hub; hub sends state to paired hub</title>
+            <rect class="flow-box" x="20" y="50" width="72" height="56" rx="10" />
+            <text x="56" y="85" text-anchor="middle" class="svg-label">Block A</text>
+            <path class="flow-arrow" d="M100 78 H140" marker-end="url(#arrow)" />
+            <rect class="flow-box" x="150" y="40" width="80" height="76" rx="10" />
+            <text x="190" y="82" text-anchor="middle" class="svg-label">Tiny hub</text>
+            <path class="flow-arrow" d="M236 78 H276" marker-end="url(#arrow)" />
+            <rect class="flow-box" x="280" y="50" width="72" height="56" rx="10" />
+            <text x="316" y="85" text-anchor="middle" class="svg-label">Block B</text>
+            <defs>
+              <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                <polygon points="0 0, 8 4, 0 8" fill="currentColor" />
+              </marker>
+            </defs>
+          </svg>
+        </figure>
+      </div>
+
+      <div class="card novelty">
+        <h3>What makes it novel</h3>
+        <ul>
+          <li>Emotion is encoded in <em>order and squish</em>, not buttons or menus.</li>
+          <li>Paired blocks give <em>ambient</em> feedback—no inbox, no notifications list.</li>
+          <li>Soft materials invite <em>fidgeting</em>, which doubles as input.</li>
+        </ul>
+      </div>
+      </div>
+    </details>
+
+    <details class="collapse-panel collapse-panel--alt" id="process">
+      <summary class="collapse-summary">
+        <span class="collapse-summary-main">
+          <span class="section-icon" aria-hidden="true">~</span>
+          <h2 class="collapse-heading">Design Process &amp; Artifacts</h2>
+        </span>
+        <span class="collapse-chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="collapse-body">
+      <p class="lead">From “what if a stress ball could text?” to foam prototypes—we kept everything chunky and testable.</p>
+
+      <ol class="timeline">
+        <li class="card timeline-item">
+          <span class="phase">Week 2</span>
+          <h3>Brainstorm</h3>
+          <p>Sticky notes, bad puns, and three discarded ideas involving rubber ducks.</p>
+          <div class="artifact phony-sketch" aria-hidden="true"></div>
+        </li>
+        <li class="card timeline-item">
+          <span class="phase">Week 5</span>
+          <h3>Cardboard + foil</h3>
+          <p>First pressure tests; learned that cereal boxes are not structural engineering.</p>
+          <div class="artifact phony-whiteboard" aria-hidden="true"></div>
+        </li>
+        <li class="card timeline-item">
+          <span class="phase">Week 8</span>
+          <h3>3D shell</h3>
+          <p>Printed hollow cubes; lined with craft foam for a friendly squeeze.</p>
+          <div class="artifact phony-3d" aria-hidden="true"></div>
+        </li>
+        <li class="card timeline-item">
+          <span class="phase">Week 10</span>
+          <h3>Playtest</h3>
+          <p>Three friends tried stacking “moods”; we fixed wobbly bases and brighter LEDs.</p>
+          <div class="artifact phony-photo" aria-hidden="true"></div>
+        </li>
+      </ol>
+      </div>
+    </details>
+
+    <details class="collapse-panel" id="demo">
+      <summary class="collapse-summary">
+        <span class="collapse-summary-main">
+          <span class="section-icon" aria-hidden="true">▶</span>
+          <h2 class="collapse-heading">Prototype Demo</h2>
+        </span>
+        <span class="collapse-chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="collapse-body">
+      <p class="lead">Video placeholder (1–3 min). Replace the URL with your real demo when ready.</p>
+      <div class="video-shell card video-placeholder" role="region" aria-label="Video placeholder for prototype demo">
+        <div class="video-placeholder-inner">
+          <span class="play-fake" aria-hidden="true">▶</span>
+          <p><strong>Your demo goes here.</strong> Replace this block with a YouTube or Vimeo embed (or drop an <code>MP4</code> in this folder and use <code>&lt;video controls&gt;</code>).</p>
+        </div>
+      </div>
+      <ul class="demo-notes">
+        <li><strong>Physical:</strong> stack, tap, or lean blocks to set a “mood stack.”</li>
+        <li><strong>Feedback:</strong> paired block pulses color + buzzes softly (placeholder copy).</li>
+        <li><strong>Features:</strong> night mode dims LEDs; secret “double squeeze” sends a sparkle pattern.</li>
+      </ul>
+      </div>
+    </details>
+
+    <details class="collapse-panel collapse-panel--alt" id="repo">
+      <summary class="collapse-summary">
+        <span class="collapse-summary-main">
+          <span class="section-icon" aria-hidden="true">⌂</span>
+          <h2 class="collapse-heading">GitHub Repository</h2>
+        </span>
+        <span class="collapse-chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="collapse-body">
+      <div class="card repo-card">
+        <p>Code, BOM, and firmware notes live here (placeholder link):</p>
+        <a class="repo-link" href="https://github.com/octocat/Hello-World" target="_blank" rel="noopener noreferrer">github.com/octocat/Hello-World</a>
+      </div>
+      </div>
+    </details>
+  </main>
+
+  <footer class="site-footer">
+    <p>Made with cardboard courage · Placeholder content for class documentation</p>
+  </footer>
+
+  <nav class="fab-nav" aria-label="Section shortcuts">
+    <a href="#team">Team</a>
+    <a href="#problem">Problem</a>
+    <a href="#concept">Concept</a>
+    <a href="#process">Process</a>
+    <a href="#demo">Demo</a>
+    <a href="#repo">Repo</a>
+  </nav>
+
+  <script>
+    (function () {
+      var panels = function () {
+        return document.querySelectorAll("main .collapse-panel");
+      };
+      function openForHash() {
+        var id = (location.hash || "").replace(/^#/, "");
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (el && el.tagName === "DETAILS") el.open = true;
+      }
+      document.getElementById("expand-all").addEventListener("click", function () {
+        panels().forEach(function (d) {
+          d.open = true;
+        });
+      });
+      document.getElementById("collapse-all").addEventListener("click", function () {
+        panels().forEach(function (d) {
+          d.open = false;
+        });
+      });
+      window.addEventListener("hashchange", openForHash);
+      document.querySelectorAll('.fab-nav a[href^="#"]').forEach(function (a) {
+        a.addEventListener("click", function () {
+          var id = (a.getAttribute("href") || "").slice(1);
+          var el = document.getElementById(id);
+          if (el && el.tagName === "DETAILS") {
+            requestAnimationFrame(function () {
+              el.open = true;
+            });
+          }
+        });
+      });
+      openForHash();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "name": "cs320-tui-project-site",
+  "private": true,
+  "scripts": {
+    "start": "npx --yes serve -l 3000 ."
+  }
+}
