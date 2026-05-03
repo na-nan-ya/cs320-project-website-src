@@ -403,22 +403,44 @@ main {
 .concept-gallery {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
+  gap: 1.1rem;
   margin: 0;
+  justify-items: center;
 }
 
-@media (min-width: 520px) {
+/* Two smaller previews on top, one larger image below (centered). */
+.concept-gallery .concept-shot:nth-child(1),
+.concept-gallery .concept-shot:nth-child(2) {
+  width: 100%;
+  max-width: min(300px, 92vw);
+}
+
+.concept-gallery .concept-shot:last-child {
+  width: 100%;
+  max-width: min(720px, 100%);
+}
+
+@media (min-width: 480px) {
   .concept-gallery {
     grid-template-columns: 1fr 1fr;
-    align-items: start;
+    column-gap: 1.25rem;
+    row-gap: 1.25rem;
+    justify-items: center;
+  }
+
+  .concept-gallery .concept-shot:nth-child(1),
+  .concept-gallery .concept-shot:nth-child(2) {
+    max-width: min(280px, 42vw);
   }
 
   .concept-gallery .concept-shot:last-child {
     grid-column: 1 / -1;
-    justify-self: center;
-    width: 100%;
-    max-width: calc(50% - 0.5rem);
+    max-width: min(680px, 100%);
   }
+}
+
+.concept-gallery .concept-shot {
+  justify-self: center;
 }
 
 .concept-shot {
