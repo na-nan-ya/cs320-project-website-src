@@ -575,18 +575,6 @@ main {
   position: relative;
 }
 
-.phase {
-  display: inline-block;
-  font-family: "Fredoka", sans-serif;
-  font-weight: 600;
-  font-size: 0.8rem;
-  background: var(--mint);
-  color: var(--ink);
-  padding: 0.2rem 0.65rem;
-  border-radius: 999px;
-  margin-bottom: 0.35rem;
-}
-
 .timeline-item h3 {
   font-family: "Fredoka", sans-serif;
   font-size: 1.15rem;
@@ -734,13 +722,6 @@ main {
 .repo-link:focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 3px;
-}
-
-.site-footer {
-  text-align: center;
-  padding: 1rem 1rem 5rem;
-  font-size: 0.85rem;
-  color: var(--ink-soft);
 }
 
 .fab-nav {
