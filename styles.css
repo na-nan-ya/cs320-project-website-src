@@ -654,42 +654,38 @@ main {
   text-align: center;
 }
 
+/* Vertical / horizontal prototype photos: full card width, stacked, captions tight */
 .process-media.process-media--captioned-pair {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.1rem;
-  justify-items: stretch;
-  width: 100%;
-  max-width: min(38rem, 100%);
-  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.75rem;
+  width: calc(100% + 2.4rem);
+  max-width: none;
+  margin-top: 0.35rem;
+  margin-left: -1.2rem;
+  margin-right: -1.2rem;
 }
 
 .process-media--captioned-pair .process-media-figure {
-  max-width: none;
   width: 100%;
-  gap: 0.42rem;
+  max-width: none;
+  gap: 0.2rem;
 }
 
 .process-media--captioned-pair .process-media-frame {
-  max-width: none;
   width: 100%;
-  padding: 0.45rem;
-  border-radius: var(--radius-sm);
+  max-width: none;
+  padding: 0.35rem;
+  border-radius: 14px;
 }
 
 .process-media--captioned-pair .process-media-caption {
-  font-size: 0.85rem;
-  letter-spacing: 0.045em;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 1.15;
   color: var(--ink-soft);
-  opacity: 1;
-}
-
-@media (min-width: 48rem) {
-  .process-media.process-media--captioned-pair {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.85rem 1rem;
-    max-width: 100%;
-  }
 }
 
 .process-media--compact .process-media-frame {
