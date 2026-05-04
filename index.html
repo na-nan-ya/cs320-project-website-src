@@ -16,7 +16,8 @@
     <div class="header-inner">
       <p class="eyebrow">CS320 · Tangible User Interfaces</p>
       <h1 class="title">Planaball</h1>
-      <p class="tagline">A squishy, stackable way to share tiny feelings—without screens in the middle.</p>
+      <p class="title-term">CS320 Spring 2026</p>
+      <p class="tagline">A time management tool that makes tasks "plan-able" and playful through fun visual and tactile experiences</p>
     </div>
     <div class="header-blobs" aria-hidden="true"></div>
   </header>
@@ -156,8 +157,6 @@
         <span class="collapse-chevron" aria-hidden="true"></span>
       </summary>
       <div class="collapse-body">
-      <p class="lead">From “what if a stress ball could text?” and lava lamp models to a fully functioning prototype!</p>
-
       <ol class="timeline">
         <li class="card timeline-item">
           <h3>Brainstorming</h3>
@@ -204,10 +203,24 @@
         <li class="card timeline-item">
           <h3>Vertical and Horizontal Prototypes</h3>
           <p>The first somewhat working iterations!</p>
+          <div class="process-media process-media--captioned-pair">
+            <figure class="process-media-figure">
+              <div class="process-media-frame">
+                <img src="IMG_1740.jpeg" alt="Vertical Prototype: early tower-style Planaball build" loading="lazy" decoding="async" />
+              </div>
+              <figcaption class="process-media-caption">Vertical Prototype</figcaption>
+            </figure>
+            <figure class="process-media-figure">
+              <div class="process-media-frame">
+                <img src="IMG_2067.jpeg" alt="Horizontal Prototype: early flat Planaball layout" loading="lazy" decoding="async" />
+              </div>
+              <figcaption class="process-media-caption">Horizontal Prototype</figcaption>
+            </figure>
+          </div>
         </li>
         <li class="card timeline-item">
           <h3>Mechanism Changes</h3>
-          <p>Juggling servos and water-oil systems until finally deciding on a solenoid-based release mechanism to drop the ball.</p>
+          <p>Our design went through multiple iterations. We began with a water-oil system, then switched to a servo-driven pulley using fishing line. After that, we experimented with a servo and push-stick mechanism to lift and hide the blocks, before finally settling on a solenoid-based release system to drop the ball.</p>
         </li>
         <li class="card timeline-item">
           <h3>Final Prototype</h3>
@@ -232,12 +245,16 @@
       </summary>
       <div class="collapse-body">
       <div class="video-shell card" role="region" aria-label="Planaball prototype demo video">
-        <video controls preload="metadata" width="100%">
+        <video id="demo-video" controls preload="metadata" width="100%">
           <source src="Planaball%20demo%20video.mov" type="video/quicktime" />
-          Your browser does not support embedded video. You can download the demo file directly:
-          <a href="Planaball%20demo%20video.mov">Planaball demo video</a>.
+          Your browser does not support embedded video.
+          <a href="https://drive.google.com/file/d/1K-3-yMr_oLTA3ZgXPhYK7b_POhe7D41H/view?usp=share_link" target="_blank" rel="noopener noreferrer">Watch it here instead</a>.
         </video>
       </div>
+      <p class="video-drive-fallback" id="demo-video-fallback" hidden>
+        If the video does not play in your browser,
+        <a href="https://drive.google.com/file/d/1K-3-yMr_oLTA3ZgXPhYK7b_POhe7D41H/view?usp=share_link" target="_blank" rel="noopener noreferrer">watch it here instead</a>.
+      </p>
       <ul class="demo-notes">
         <li><strong>Physical:</strong> Squeeze and play with fun tactile balls of different textures!</li>
         <li><strong>Feedback:</strong> Visual chip moving up and down + Tactile ball falling</li>
@@ -306,6 +323,18 @@
         });
       });
       openForHash();
+
+      var demoVideo = document.getElementById("demo-video");
+      var demoVideoFallback = document.getElementById("demo-video-fallback");
+      if (demoVideo && demoVideoFallback) {
+        function showDemoVideoFallback() {
+          demoVideoFallback.hidden = false;
+        }
+        demoVideo.addEventListener("error", showDemoVideoFallback);
+        demoVideo.addEventListener("loadedmetadata", function () {
+          if (demoVideo.error) showDemoVideoFallback();
+        });
+      }
     })();
   </script>
 </body>
