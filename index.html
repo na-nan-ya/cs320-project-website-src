@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=proto1" />
+  <link rel="stylesheet" href="styles.css?v=proto3" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -260,12 +260,13 @@
         <video id="demo-video" controls preload="metadata" width="100%">
           <source src="Planaball%20demo%20video.mov" type="video/quicktime" />
           Your browser does not support embedded video.
-          <a href="https://drive.google.com/file/d/1K-3-yMr_oLTA3ZgXPhYK7b_POhe7D41H/view?usp=share_link" target="_blank" rel="noopener noreferrer">Watch it here instead</a>.
+          <a href="https://drive.google.com/file/d/1K-3-yMr_oLTA3ZgXPhYK7b_POhe7D41H/view?usp=share_link" target="_blank" rel="noopener noreferrer">Watch the demo on Google Drive</a>.
         </video>
       </div>
-      <p class="video-drive-fallback" id="demo-video-fallback" hidden>
-        If the video does not play in your browser,
-        <a href="https://drive.google.com/file/d/1K-3-yMr_oLTA3ZgXPhYK7b_POhe7D41H/view?usp=share_link" target="_blank" rel="noopener noreferrer">watch it here instead</a>.
+      <p class="video-drive-help">
+        Is this video not displaying correctly? Watch it
+        <a href="https://drive.google.com/file/d/1K-3-yMr_oLTA3ZgXPhYK7b_POhe7D41H/view?usp=share_link" target="_blank" rel="noopener noreferrer">here</a>
+        instead!
       </p>
       <ul class="demo-notes">
         <li><strong>Physical:</strong> Squeeze and play with fun tactile balls of different textures!</li>
@@ -335,18 +336,6 @@
         });
       });
       openForHash();
-
-      var demoVideo = document.getElementById("demo-video");
-      var demoVideoFallback = document.getElementById("demo-video-fallback");
-      if (demoVideo && demoVideoFallback) {
-        function showDemoVideoFallback() {
-          demoVideoFallback.hidden = false;
-        }
-        demoVideo.addEventListener("error", showDemoVideoFallback);
-        demoVideo.addEventListener("loadedmetadata", function () {
-          if (demoVideo.error) showDemoVideoFallback();
-        });
-      }
     })();
   </script>
 </body>
