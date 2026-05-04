@@ -628,66 +628,6 @@ main {
   background: #fff;
 }
 
-.process-media-figure {
-  margin: 0;
-  width: 100%;
-  max-width: min(480px, 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.28rem;
-}
-
-.process-media-figure .process-media-frame {
-  max-width: 100%;
-  width: 100%;
-}
-
-.process-media-caption {
-  margin: 0;
-  font-family: "Fredoka", sans-serif;
-  font-weight: 600;
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
-  line-height: 1.25;
-  color: var(--ink-soft);
-  text-align: center;
-}
-
-/* Vertical / horizontal prototype photos: full card width, stacked, captions tight */
-.process-media.process-media--captioned-pair {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 0.75rem;
-  width: calc(100% + 2.4rem);
-  max-width: none;
-  margin-top: 0.35rem;
-  margin-left: -1.2rem;
-  margin-right: -1.2rem;
-}
-
-.process-media--captioned-pair .process-media-figure {
-  width: 100%;
-  max-width: none;
-  gap: 0.2rem;
-}
-
-.process-media--captioned-pair .process-media-frame {
-  width: 100%;
-  max-width: none;
-  padding: 0.35rem;
-  border-radius: 14px;
-}
-
-.process-media--captioned-pair .process-media-caption {
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  line-height: 1.15;
-  color: var(--ink-soft);
-}
-
 .process-media--compact .process-media-frame {
   max-width: min(380px, 100%);
 }
@@ -900,4 +840,75 @@ main {
   .repo-link:hover {
     transform: none;
   }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Vertical / horizontal prototype gallery (own frame class — no 480px cap) */
+/* Breaks out of timeline card padding + collapse-body padding for max width */
+
+.process-media.proto-dual {
+  --proto-bleed: calc(1.2rem + 1.1rem);
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.65rem;
+  width: calc(100% + 2 * var(--proto-bleed));
+  max-width: none;
+  margin-top: 0.35rem;
+  margin-left: calc(-1 * var(--proto-bleed));
+  margin-right: calc(-1 * var(--proto-bleed));
+  box-sizing: border-box;
+}
+
+.proto-dual__figure {
+  margin: 0;
+  width: 100%;
+  max-width: none;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.18rem;
+}
+
+.proto-dual__frame {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  padding: 0.38rem;
+  border-radius: 14px;
+  box-sizing: border-box;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(240, 246, 251, 0.65));
+  border: 1px solid rgba(45, 49, 66, 0.08);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 3px 12px rgba(45, 49, 66, 0.08);
+}
+
+.proto-dual__frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(157, 212, 240, 0.35);
+}
+
+.proto-dual__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.proto-dual__cap {
+  margin: 0;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 600;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  line-height: 1.15;
+  color: var(--ink-soft);
+  text-align: center;
 }
